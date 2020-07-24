@@ -1,0 +1,10 @@
+{
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vetur.grammar.customBlocks": {
+        "page-query": "graphql",
+        "static-query": "graphql"
+    },
+}
