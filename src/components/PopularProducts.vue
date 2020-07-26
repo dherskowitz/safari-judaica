@@ -1,7 +1,9 @@
 <template>
     <section class="mt-10 lg:mt-20">
         <h1 class="text-3xl font-semibold border-gray-600 border-b-4 mb-8">Popular Products</h1>
-        <div class="grid grid-flow-row sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div
+            class="grid grid-flow-row sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2"
+        >
             <ProductCard
                 v-for="edge in $static.products.edges"
                 :key="edge.node.id"

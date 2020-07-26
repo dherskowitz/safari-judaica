@@ -8,16 +8,18 @@
         />
         <div class="px-8 pt-8 text-gray-300">
             <div class="text-2xl text-center">{{ productData.node.name }}</div>
-            <div class="text-lg text-center mt-2">${{ productData.node.priceDollars }}</div>
+            <div
+                class="text-xl text-center w-16 mx-auto rounded-lg mt-2 bg-capeHoney-alt text-black"
+            >${{ productData.node.priceDollars }}</div>
             <div class="text-center mt-4">{{ productData.node.summary }}</div>
             <span
-                class="absolute top-0 right-0 bg-orange-300 m-2 rounded-md px-2 py-1 text-black"
+                class="absolute top-0 right-0 m-2 rounded-md px-2 py-1 text-white"
+                :class="{'bg-stock': productData.node.stockStatus == 'In Stock', 'bg-stock-low': productData.node.stockStatus == 'Limited Stock', 'bg-stock-out': productData.node.stockStatus == 'Out Of Stock'}"
             >{{ productData.node.stockStatus }}</span>
-            <br />
         </div>
         <g-link
             :to="productData.node.path"
-            class="text-gray-300 bg-outerSpace rounded-lg m-5 p-2 text-center text-xl"
+            class="bg-capeHoney-alt rounded-lg m-5 p-2 text-center text-xl"
         >See Details</g-link>
     </div>
 </template>
