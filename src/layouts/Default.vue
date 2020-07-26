@@ -1,23 +1,12 @@
 <template>
     <div class="container mx-auto">
-        <header class="flex flex-row bg-capeHoney md:rounded-lg shadow-md justify-between pl-2">
+        <header
+            class="relative flex flex-row bg-capeHoney md:rounded-lg shadow-md justify-between md:pl-2"
+        >
             <g-link to="/">
                 <g-image src="~/assets/img/Safari_Juciaca_Logo-1935x583.png" width="200" />
             </g-link>
-            <nav class="nav flex justify-between items-center">
-                <g-link
-                    class="py-4 px-8 hover:bg-capeHoney-darker transition-colors duration-300 rounded-lg"
-                    to="/"
-                >Home</g-link>
-                <g-link
-                    class="py-4 px-8 hover:bg-capeHoney-darker transition-colors duration-300 rounded-lg"
-                    to="/about/"
-                >About</g-link>
-                <g-link
-                    class="py-4 px-8 hover:bg-capeHoney-darker transition-colors duration-300 rounded-lg"
-                    to="/shop/"
-                >Shop</g-link>
-            </nav>
+            <Nav />
         </header>
         <slot />
         <footer class="mt-20 bg-outerSpace">
@@ -40,7 +29,11 @@ query {
 </static-query>
 
 <script>
+import Nav from "~/components/Nav";
 export default {
+    components: {
+        Nav,
+    },
     data() {
         return {
             currentYear: "",
