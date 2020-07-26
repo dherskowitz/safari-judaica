@@ -1,11 +1,17 @@
 <template>
-    <div>
-        <h1 v-html="$page.product.name" />
-        <pre>
-          {{$page.product.additionalImages}}
-        </pre>
-        <img :src="$page.product.primaryImage[0].thumbnails.large.url" :alt="$page.product.name" />
-    </div>
+    <Layout>
+        <div>
+            <h1 v-html="$page.product.name" />
+            <p>{{ $page.product.priceDollars }}</p>
+            <p>{{ $page.product.category }}</p>
+            <p>{{ $page.product.stockStatus }}</p>
+            <p>{{ $page.product.description }}</p>
+            <img
+                :src="$page.product.primaryImage[0].thumbnails.large.url"
+                :alt="$page.product.name"
+            />
+        </div>
+    </Layout>
 </template>
 
 <page-query>
