@@ -3,7 +3,7 @@
         <HomeBanner />
         <CategoriesList />
         <CTABanner />
-        <PopularProducts />
+        <PopularProducts colCount="4" />
     </Layout>
 </template>
 

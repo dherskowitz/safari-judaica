@@ -6,7 +6,7 @@
             </div>
             <div class="flex-1 w-full">
                 <NewProducts />
-                <PopularProducts />
+                <PopularProducts colCount="3" />
             </div>
         </section>
     </Layout>
