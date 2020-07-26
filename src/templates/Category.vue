@@ -1,11 +1,19 @@
 <template>
     <Layout>
-        <section>
-            <br />
-            <hr class="border-solid border-4 border-gray-600" />
-            <br />
-            <div v-for="edge in $page.products.edges" :key="edge.node.id">
-                <h2>{{ edge.node.name }}</h2>
+        <section class="min-h-screen md:flex md:items-start md:max-w-full mt-10 lg:mt-20">
+            <div class="flex-none w-full md:max-w-xs">
+                <CategoriesMenu />
+            </div>
+            <div
+                v-if="$page.products.edges && $page.products.edges.length == 0"
+                class="text-2xl text-center w-full"
+            >No products in this category yet!</div>
+            <div class="flex-1 md:flex flex-col lg:flex-row w-full">
+                <ProductCard
+                    v-for="edge in $page.products.edges"
+                    :key="edge.node.id"
+                    :productData="edge"
+                />
             </div>
         </section>
     </Layout>
@@ -16,8 +24,19 @@ query ($id: String!) {
   products: allProduct(filter: {category: {contains: [$id]}}) {
     edges {
       node {
-        id,
+        id
         name
+        path
+        priceDollars
+        summary
+        stockStatus
+        primaryImage {
+          thumbnails {
+            large {
+              url
+            }
+          }
+        }
       }
     }
   }
@@ -25,11 +44,13 @@ query ($id: String!) {
 </page-query>
 
 <script>
-import CategoriesList from "~/components/CategoriesList";
+import CategoriesMenu from "~/components/CategoriesMenu";
+import ProductCard from "~/components/ProductCard";
 
 export default {
     components: {
-        CategoriesList,
+        CategoriesMenu,
+        ProductCard,
     },
 };
 </script>
