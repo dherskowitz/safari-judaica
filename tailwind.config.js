@@ -5,7 +5,8 @@ module.exports = {
             colors: {
                 capeHoney: {
                     default: "#dcd7ce",
-                    darker: "#fde3a7",
+                    lighter: "#b2aea975",
+                    darker: "#b2aea9",
                 },
                 outerSpace: {
                     default: "#2E3131",
