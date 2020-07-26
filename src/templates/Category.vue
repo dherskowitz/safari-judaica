@@ -1,7 +1,6 @@
 <template>
     <Layout>
         <section>
-            <CategoriesList />
             <br />
             <hr class="border-solid border-4 border-gray-600" />
             <br />
