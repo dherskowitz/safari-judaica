@@ -3,6 +3,7 @@
         class="my-4 md:m-2 md:mb-10 md:my-0 bg-gray-800 shadow-lg relative flex justify-between flex-col rounded-lg max-w-2xl md:max-w-none lg:max-w-xs"
     >
         <g-image
+            class="rounded-t-lg"
             v-if="productData.node.primaryImage[0]"
             :src="productData.node.primaryImage[0].thumbnails.large.url"
         />
