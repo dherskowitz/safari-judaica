@@ -38,7 +38,7 @@ module.exports = {
         },
     ],
     templates: {
-        Product: "/products/:Slug",
-        Category: "/category/:Name",
+        Product: "/shop/products/:Slug",
+        Category: "/shop/category/:Name",
     },
 };
