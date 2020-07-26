@@ -26,7 +26,6 @@
             <g-link
                 class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
                 to="/shop/"
-                exact
             >Shop</g-link>
         </nav>
     </div>
@@ -68,13 +67,11 @@ export default {
 }
 nav > a.active {
     background: #bda27f;
-    pointer-events: none;
 }
 @media (min-width: 768px) {
     nav > a.active {
         background: none;
         border-bottom: 4px solid #bda27f;
-        pointer-events: none;
     }
 }
 </style>
