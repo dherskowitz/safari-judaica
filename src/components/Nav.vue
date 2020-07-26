@@ -14,17 +14,17 @@
             :class="{'hidden md:block': !menuOpen, 'absolute md:relative left-0 mt-64 md:mt-0': menuOpen}"
         >
             <g-link
-                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center"
+                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
                 to="/"
                 exact
             >Home</g-link>
             <g-link
-                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center"
+                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
                 to="/about/"
                 exact
             >About</g-link>
             <g-link
-                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center"
+                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
                 to="/shop/"
                 exact
             >Shop</g-link>
