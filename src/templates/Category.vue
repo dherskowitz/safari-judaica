@@ -52,6 +52,9 @@ export default {
         CategoriesMenu,
         ProductCard,
     },
+    metaInfo: {
+        title: "Shop By Category",
+        meta: [{ name: "description", content: "Shop Safari Judaica" }],
+    },
 };
-</script>
 </script>

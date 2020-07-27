@@ -50,3 +50,13 @@ query ($id: ID!) {
   }
 }
 </page-query>
+
+<script>
+export default {
+    metaInfo: {
+        title: "Product Page",
+        meta: [{ name: "description", content: "Shop Safari Judaica" }],
+    },
+};
+</script>
+

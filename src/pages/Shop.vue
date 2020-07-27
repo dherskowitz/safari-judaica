@@ -17,6 +17,10 @@ import CategoriesMenu from "~/components/CategoriesMenu";
 import PopularProducts from "~/components/PopularProducts";
 import NewProducts from "~/components/NewProducts";
 export default {
+    metaInfo: {
+        title: "Shop",
+        meta: [{ name: "description", content: "Shop Safari Judaica" }],
+    },
     components: {
         CategoriesMenu,
         PopularProducts,

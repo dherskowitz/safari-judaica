@@ -23,7 +23,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+    metaInfo: {
+        title: "404 Page Not Found",
+        meta: [{ name: "description", content: "404 Page Not Found" }],
+    },
+};
 </script>
 
 <style>

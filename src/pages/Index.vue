@@ -15,7 +15,8 @@ import PopularProducts from "~/components/PopularProducts";
 
 export default {
     metaInfo: {
-        title: "Safari Judaica",
+        title: "Home",
+        meta: [{ name: "description", content: "Welcome to Safari Judaica." }],
     },
     components: {
         CategoriesList,
