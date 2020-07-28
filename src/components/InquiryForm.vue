@@ -21,7 +21,20 @@
                 <path d="M10 10l4 4m0 -4l-4 4" />
             </svg>
         </div>
-        <div class="bg-white md:max-w-lg rounded-md shadow-lg p-5 md:p-10 m-4" @click.stop>
+        <div
+            v-if="messageSent"
+            class="bg-white md:max-w-lg rounded-md shadow-lg p-5 md:p-10 m-4 text-xl text-center leading-loose"
+            @click.stop
+        >
+            <p>Your inquiry has been successfully sent.</p>
+            <p>Someone will contact you as soon as possible.</p>
+            <p>Thank you.</p>
+            <button
+                @click="hideForm"
+                class="bg-outerSpace px-8 py-2 mt-8 text-white rounded-lg shadow-lg"
+            >Close</button>
+        </div>
+        <div v-else class="bg-white md:max-w-lg rounded-md shadow-lg p-5 md:p-10 m-4" @click.stop>
             <div>
                 <p class="text-xl text-center">
                     Call
@@ -35,10 +48,7 @@
                 <hr class="border-b-2 border-gray-300 my-3" />
                 <p class="-mt-8 text-xl text-center bg-white w-8 mx-auto">or</p>
             </div>
-            <div v-if="messageSent">
-                <h1>Message Sent</h1>
-            </div>
-            <div v-else>
+            <div>
                 <h1 class="text-2xl text-center border-b-4 border-outerSpace mb-8">Send Inquiry</h1>
                 <p
                     class="text-lg mb-8 max-w-md"
@@ -64,7 +74,7 @@
                         <div class="flex flex-row justify-between">
                             <label for="email" class="block">Email</label>
                             <div
-                                class="text-red-500 font-semibold"
+                                class="text-red-500 text-sm font-semibold"
                                 v-if="!$v.formData.email.required"
                             >Field is required</div>
                         </div>
@@ -95,7 +105,7 @@
                                 >{{ c.name }} - {{ c.dial_code }}</option>
                             </select>
                             <div
-                                class="text-red-500 font-semibold"
+                                class="text-red-500 font-semibold text-sm"
                                 v-if="!$v.formData.country.required"
                             >Field is required</div>
                         </div>
@@ -110,7 +120,7 @@
                                 @input="formatPhone"
                             />
                             <div
-                                class="text-red-500 font-semibold"
+                                class="text-red-500 font-semibold text-sm"
                                 v-if="!$v.formData.phone.required"
                             >Field is required</div>
                             <div
@@ -129,8 +139,11 @@
                             v-model="formData.message"
                         ></textarea>
                     </div>
-                    <div v-if="messageError">
-                        <p>Message error</p>
+                    <div
+                        v-if="messageError"
+                        class="text-xl text-center text-red-600 font-bold mt-4"
+                    >
+                        <p>There was a problem sending this inquiry. Please try again later.</p>
                     </div>
                     <button
                         class="bg-outerSpace text-white text-lg mt-8 h-16 rounded-lg shadow-lg w-full"
@@ -211,6 +224,8 @@ export default {
                 : "" + x[1] + "-" + x[2] + (x[3] ? "-" + x[3] : "");
         },
         hideForm() {
+            if (this.messageSent) this.messageSent = false;
+            if (this.messageError) this.messageError = false;
             this.$emit("hideForm", true);
             document
                 .querySelector("body")
@@ -246,9 +261,9 @@ export default {
                     let data = await response.json();
                     console.log(data);
                     if (data.body.error) {
-                        console.log(data.body.error);
+                        this.messageError = true;
                     } else {
-                        console.log("no error");
+                        this.messageSent = true;
                     }
                     this.sending = !this.sending;
                     return data;
