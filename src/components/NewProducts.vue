@@ -32,6 +32,7 @@ query {
         name
         priceDollars
         summary
+        path
         stockStatus
         primaryImage {
           thumbnails {
