@@ -19,7 +19,7 @@ module.exports = {
                     {
                         name: "Products", // required
                         typeName: "Product", // required
-                        select: {}, // optional,
+                        select: {}, // optional
                     },
                     {
                         name: "Categories", // required
@@ -38,7 +38,7 @@ module.exports = {
         },
     ],
     templates: {
-        Product: "/shop/products/:Slug",
-        Category: "/shop/category/:Name",
+        Product: "/shop/:CategoryName__0/:Slug",
+        Category: "/shop/:Name",
     },
 };
