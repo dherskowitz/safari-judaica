@@ -2,6 +2,7 @@
     <Layout>
         <div class="mt-10">
             <g-link to="/" class="mr-1 hover:underline">Home</g-link>/
+            <g-link to="/shop" class="mr-1 hover:underline">Shop</g-link>/
             <g-link
                 :to="categoryLink"
                 class="mr-1 hover:underline"
@@ -15,7 +16,7 @@
                 <div class="mainProductImage">
                     <g-image :src="mainImage" :alt="$page.product.name"></g-image>
                 </div>
-                <div class="flex flex-wrap">
+                <div v-if="$page.product.additionalImages.length > 0" class="flex flex-wrap">
                     <g-image
                         :src="$page.product.primaryImage[0].thumbnails.large.url"
                         :alt="$page.product.name"
@@ -26,6 +27,7 @@
                     <g-image
                         v-for="img in $page.product.additionalImages"
                         :src="img.thumbnails.large.url"
+                        :alt="$page.product.name"
                         :key="img.id"
                         class="w-1/3 cursor-pointer border-capeHoney-alt border-t-4 border-r-4"
                         :class="{'active-image': mainImageID == img.id}"
@@ -78,7 +80,7 @@
             <h2 class="text-3xl mb-2 border-b-4 border-capeHoney-alt">Product Description</h2>
             <p class="bg-white rounded-lg shadow-lg mt-10 p-10">{{ $page.product.description }}</p>
         </div>
-        <div class="mt-10 md:mt-20">
+        <div class="mt-10 md:mt-20" v-if="relatedProducts.length > 0">
             <h2 class="text-3xl mb-8 border-b-4 border-capeHoney-alt">Similar Products</h2>
             <ProductCard v-for="edge in relatedProducts" :key="edge.node.id" :productData="edge" />
         </div>
@@ -200,7 +202,6 @@ export default {
                 );
         },
         changeMainImage(newImage) {
-            let vm = this;
             let imgContainer = document.querySelector(".mainProductImage");
             imgContainer.classList.add("fade");
             this.mainImage = newImage.thumbnails.large.url;
@@ -215,8 +216,13 @@ export default {
 
 <style>
 .mainProductImage {
-    max-height: 380px;
+    max-height: 238px;
     overflow: hidden;
+}
+@media (min-width: 768px) {
+    .mainProductImage {
+        max-height: 380px;
+    }
 }
 .mainProductImage.fade {
     animation-name: fade;
