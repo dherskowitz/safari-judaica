@@ -3,7 +3,7 @@
         v-if="showForm"
         id="inquiry-form"
         @click="hideForm"
-        class="bg-gray-600 bg-opacity-75 fixed md:w-full h-full top-0 left-0 md:flex md:items-center md:justify-center z-30 overflow-y-scroll"
+        class="bg-gray-600 bg-opacity-75 fixed w-full h-full top-0 left-0 md:flex md:items-center md:justify-center z-30 overflow-y-scroll"
     >
         <div class="absolute top-0 right-0 pt-8 md:pt-10 pr-5 md:pr-10 z-40 cursor-pointer">
             <svg
