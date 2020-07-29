@@ -179,7 +179,6 @@ export default {
         );
     },
     mounted() {
-        console.log(this.$page);
         this.mainImage = this.$page.product.primaryImage[0].thumbnails.large.url;
         this.mainImageID = this.$page.product.primaryImage[0].id;
         let catSlug = this.$page.product.categoryName[0]
@@ -188,9 +187,6 @@ export default {
         this.categoryLink = `/shop/${catSlug}`;
     },
     methods: {
-        // stringify(name) {
-        //     return name.replace(" ", "-").toLowerCase();
-        // },
         toggleForm() {
             this.showForm = !this.showForm;
             document
@@ -228,7 +224,7 @@ export default {
 }
 .active-image {
     border-top: 4px solid rebeccapurple;
-    opacity: 65%;
+    opacity: 0.65;
     pointer-events: none;
 }
 
