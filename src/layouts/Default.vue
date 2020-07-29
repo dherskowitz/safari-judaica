@@ -39,10 +39,8 @@ export default {
             currentYear: "",
         };
     },
-    methods: {
-        getCurrentYear() {
-            this.currentYear = new Date().getFullYear();
-        },
+    mounted() {
+        this.currentYear = new Date().getFullYear();
     },
 };
 </script>
