@@ -87,7 +87,7 @@
             <h2 class="text-3xl mb-8 border-b-4 border-capeHoney-alt">Similar Products</h2>
             <ProductCard v-for="edge in relatedProducts" :key="edge.node.id" :productData="edge" />
         </div>
-        <InquiryForm
+        <ProductInquiryForm
             v-bind:showForm="showForm"
             @hideForm="showForm = false"
             :productName="$page.product.name"
@@ -155,7 +155,7 @@ query ($id: ID!, $Category__0: String!) {
 </page-query>
 
 <script>
-import InquiryForm from "~/components/InquiryForm";
+import ProductInquiryForm from "~/components/ProductInquiryForm";
 import ProductCard from "~/components/ProductCard";
 
 export default {
@@ -177,7 +177,7 @@ export default {
         meta: [{ name: "description", content: "Shop Safari Judaica" }],
     },
     components: {
-        InquiryForm,
+        ProductInquiryForm,
         ProductCard,
     },
     beforeUpdate() {
@@ -216,7 +216,6 @@ export default {
                 );
         },
         changeMainImage(newImage) {
-            console.log(newImage);
             let imgContainer = document.querySelector(".mainProductImage");
             imgContainer.classList.add("fade");
             this.mainImage.url = newImage.thumbnails.large.url;
