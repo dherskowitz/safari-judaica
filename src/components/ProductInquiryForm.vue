@@ -51,9 +51,13 @@
             <div>
                 <h1 class="text-2xl text-center border-b-4 border-outerSpace mb-8">Send Inquiry</h1>
                 <p
-                    class="text-lg mb-8 max-w-md"
+                    class="text-lg mb-8 max-w-md mx-auto"
                 >{{ productName }} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, voluptatibus!</p>
-                <form action class="w-full max-w-md" :class="{ 'pointer-events-none': sending }">
+                <form
+                    action
+                    class="w-full max-w-md mx-auto"
+                    :class="{ 'pointer-events-none': sending }"
+                >
                     <div class="w-full mt-8" :class="{ 'border-red-400': $v.formData.name.$error }">
                         <div class="flex flex-row justify-between">
                             <label for="name" class>Name</label>
