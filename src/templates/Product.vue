@@ -14,14 +14,14 @@
                 class="bg-white rounded-lg md:rounded-none shadow-lg md:shadow-none w-full md:w-1/2 md:mr-10 flex flex-col justify-between border-capeHoney-alt md:border-r-4"
             >
                 <div class="mainProductImage">
-                    <g-image :src="mainImage" :alt="$page.product.name"></g-image>
+                    <g-image :src="mainImage.url" :alt="$page.product.name"></g-image>
                 </div>
                 <div v-if="$page.product.additionalImages.length > 0" class="flex flex-wrap">
                     <g-image
                         :src="$page.product.primaryImage[0].thumbnails.large.url"
                         :alt="$page.product.name"
                         class="w-1/3 cursor-pointer border-capeHoney-alt border-t-4 border-r-4"
-                        :class="{'active-image': mainImageID == $page.product.primaryImage[0].id}"
+                        :class="{'active-image': mainImage.id == $page.product.primaryImage[0].id}"
                         @click="changeMainImage($page.product.primaryImage[0])"
                     ></g-image>
                     <g-image
@@ -30,7 +30,7 @@
                         :alt="$page.product.name"
                         :key="img.id"
                         class="w-1/3 cursor-pointer border-capeHoney-alt border-t-4 border-r-4"
-                        :class="{'active-image': mainImageID == img.id}"
+                        :class="{'active-image': mainImage.id == img.id}"
                         @click="changeMainImage(img)"
                     ></g-image>
                 </div>
@@ -158,9 +158,13 @@ import ProductCard from "~/components/ProductCard";
 export default {
     data() {
         return {
+            page: "",
             showForm: false,
-            mainImage: "",
-            mainImageID: "",
+            mainImage: {
+                id: "",
+                url: "",
+            },
+            productID: "",
             categoryLink: "",
             relatedProducts: [],
         };
@@ -180,9 +184,16 @@ export default {
             }
         );
     },
+    updated() {
+        if (this.page !== this.$route.params.Slug) {
+            this.mainImage.url = this.$page.product.primaryImage[0].thumbnails.large.url;
+            this.mainImage.id = this.$page.product.primaryImage[0].id;
+        }
+        this.page = this.$route.params.Slug;
+    },
     mounted() {
-        this.mainImage = this.$page.product.primaryImage[0].thumbnails.large.url;
-        this.mainImageID = this.$page.product.primaryImage[0].id;
+        this.mainImage.url = this.$page.product.primaryImage[0].thumbnails.large.url;
+        this.mainImage.id = this.$page.product.primaryImage[0].id;
         let catSlug = this.$page.product.categoryName[0]
             .toLowerCase()
             .replace(" ", "-");
@@ -202,26 +213,25 @@ export default {
                 );
         },
         changeMainImage(newImage) {
+            console.log(newImage);
             let imgContainer = document.querySelector(".mainProductImage");
             imgContainer.classList.add("fade");
-            this.mainImage = newImage.thumbnails.large.url;
-            this.mainImageID = newImage.id;
+            this.mainImage.url = newImage.thumbnails.large.url;
+            this.mainImage.id = newImage.id;
             setTimeout(function () {
                 imgContainer.classList.remove("fade");
             }, 500);
+            console.log("change");
         },
     },
 };
 </script>
 
 <style>
-.mainProductImage {
-    max-height: 238px;
-    overflow: hidden;
-}
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     .mainProductImage {
-        max-height: 380px;
+        height: 440px;
+        overflow: hidden;
     }
 }
 .mainProductImage.fade {
