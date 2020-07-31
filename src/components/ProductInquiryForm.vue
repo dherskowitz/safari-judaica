@@ -236,12 +236,21 @@ export default {
                     "h-screen",
                     "overflow-y-hidden"
                 );
+            this.formData.name = "";
+            this.formData.email = "";
+            this.formData.phone = "";
+            this.formData.country = "";
+            this.formData.countryCode = "";
+            this.formData.message = `Hi! I am interested in purchasing ${this.productName}`;
         },
         async sendInquiry() {
             let formData = {
                 productData: this.$page.product,
                 formData: this.formData,
             };
+            formData.formData.countryCode = this.countries.find(
+                (c) => c.code == this.formData.country
+            ).dial_code;
             let options = {
                 method: "post",
                 body: JSON.stringify(formData),
@@ -250,17 +259,10 @@ export default {
                 this.showErrors = true;
             } else {
                 this.sending = !this.sending;
-                formData.formData.countryCode = this.countries.find(
-                    (c) => c.code == this.formData.country
-                ).dial_code;
                 try {
-                    let response = await fetch(
-                        "/api/customer_inquiry",
-                        options
-                    );
+                    let response = await fetch("/api/product_inquiry", options);
                     let data = await response.json();
-                    console.log(data);
-                    if (data.body.error) {
+                    if (data.body.error || data.body.errno) {
                         this.messageError = true;
                     } else {
                         this.messageSent = true;
