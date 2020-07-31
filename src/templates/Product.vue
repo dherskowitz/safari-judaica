@@ -1,7 +1,6 @@
 <template>
     <Layout>
         <div class="mt-10">
-            <g-link to="/" class="mr-1 hover:underline">Home</g-link>/
             <g-link to="/shop" class="mr-1 hover:underline">Shop</g-link>/
             <g-link
                 :to="categoryLink"
