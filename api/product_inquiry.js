@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
     };
     try {
         let response = await fetch(
-            `${base_url}/${process.env.AIRTABLE_BASE}/Customer%20Inquiries`,
+            `${base_url}/${process.env.AIRTABLE_BASE}/Product%20Inquiries`,
             {
                 method: "POST",
                 body: JSON.stringify(payload),
