@@ -14,7 +14,11 @@
                 class="bg-white rounded-lg md:rounded-none shadow-lg md:shadow-none w-full md:w-1/2 md:mr-10 flex flex-col justify-between border-capeHoney-alt md:border-r-4"
             >
                 <div class="mainProductImage">
-                    <g-image :src="mainImage.url" :alt="$page.product.name"></g-image>
+                    <g-image
+                        :src="mainImage.url"
+                        :alt="$page.product.name"
+                        class="max-h-full mx-auto w-full object-cover"
+                    ></g-image>
                 </div>
                 <div v-if="$page.product.additionalImages.length > 0" class="flex flex-wrap">
                     <g-image
@@ -228,6 +232,16 @@ export default {
 </script>
 
 <style>
+.mainProductImage {
+    height: 300px;
+    overflow: hidden;
+}
+@media (min-width: 600px) {
+    .mainProductImage {
+        height: 400px;
+        overflow: hidden;
+    }
+}
 @media (min-width: 1200px) {
     .mainProductImage {
         height: 440px;
