@@ -56,9 +56,18 @@ export default {
         CategoriesMenu,
         ProductCard,
     },
-    metaInfo: {
-        title: "Shop By Category",
-        meta: [{ name: "description", content: "Shop Safari Judaica" }],
+    metaInfo() {
+        return {
+            title: `Shop ${this.titleCase(this.$route.params.Name)}`,
+            meta: [
+                {
+                    name: "description",
+                    content: `Shop Safari Judaica ${this.titleCase(
+                        this.$route.params.Name
+                    )}`,
+                },
+            ],
+        };
     },
     methods: {
         titleCase(str) {
