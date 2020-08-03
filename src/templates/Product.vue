@@ -67,10 +67,27 @@
                     <span class="text-lg font-bold text-gray-700">- Materials</span>&nbsp;&nbsp; Leather and Fur
                 </p>
                 <div class="mt-5">
-                    Share:
-                    <span class="mr-2">Facebook</span>
-                    <span class="mr-2">Instagram</span>
-                    <span class="mr-2">WhatsApp</span>
+                    <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        class="mr-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                    >Facebook</a>
+                    <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        class="mr-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                    >Instagram</a>
+                    <a
+                        href="whatsapp://send"
+                        data-text="Text you want to Share"
+                        data-href="URL you want to share"
+                        data-action="share/whatsapp/share"
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        class="mr-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                    >WhatsApp</a>
                 </div>
 
                 <button
