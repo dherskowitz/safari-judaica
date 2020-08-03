@@ -66,27 +66,25 @@
                 <p>
                     <span class="text-lg font-bold text-gray-700">- Materials</span>&nbsp;&nbsp; Leather and Fur
                 </p>
-                <div class="mt-5">
+                <div class="mt-5 flex flex-wrap justify-center md:block">
                     <a
                         href="#"
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        class="mr-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                        class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
                     >Facebook</a>
                     <a
                         href="#"
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        class="mr-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                        class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
                     >Instagram</a>
                     <a
-                        href="whatsapp://send"
-                        data-text="Text you want to Share"
-                        data-href="URL you want to share"
+                        :href="'https://wa.me/'+whatsappShare"
                         data-action="share/whatsapp/share"
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        class="mr-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                        class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
                     >WhatsApp</a>
                 </div>
 
@@ -184,14 +182,34 @@ export default {
                 id: "",
                 url: "",
             },
+            productName: "",
             productID: "",
             categoryLink: "",
+            whatsappShare: "",
             relatedProducts: [],
         };
     },
-    metaInfo: {
-        title: "Product Page",
-        meta: [{ name: "description", content: "Shop Safari Judaica" }],
+    metaInfo() {
+        return {
+            title: this.$page.product.name,
+            meta: [
+                { name: "description", content: "Shop Safari Judaica" },
+                {
+                    property: "og:title",
+                    content: this.$page.product.name,
+                },
+                {
+                    property: "og:description",
+                    cotent: this.$page.product.summary,
+                },
+                {
+                    property: "og:image",
+                    content:
+                        this.$page.product.primaryImage[0].thumbnails.large
+                            .url || "",
+                },
+            ],
+        };
     },
     components: {
         ProductInquiryForm,
@@ -208,6 +226,7 @@ export default {
         if (this.page !== this.$route.params.Slug) {
             this.mainImage.url = this.$page.product.primaryImage[0].thumbnails.large.url;
             this.mainImage.id = this.$page.product.primaryImage[0].id;
+            this.whatsappShare = `?text=Check this awesome ${this.$page.product.name} from Safari Judaica%0A%0Ahttps://safari-judaica.vercel.app${this.$page.product.path}`;
         }
         this.page = this.$route.params.Slug;
     },
