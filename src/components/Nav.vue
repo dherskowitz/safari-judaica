@@ -20,13 +20,18 @@
             >Home</g-link>
             <g-link
                 class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
+                to="/shop/"
+            >Shop</g-link>
+            <g-link
+                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
                 to="/about/"
                 exact
             >About</g-link>
             <g-link
                 class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
-                to="/shop/"
-            >Shop</g-link>
+                to="/contact/"
+                exact
+            >Contact</g-link>
         </nav>
     </div>
 </template>
