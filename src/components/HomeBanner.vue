@@ -8,7 +8,10 @@
             <p
                 class="font-semibold text-3xl max-w-lg my-8"
             >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button>see the products</button>
+            <g-link
+                class="bg-outerSpace py-5 px-16 text-xl text-white rounded-lg shadow-lg hover:bg-gray-800 uppercase"
+                to="/shop/"
+            >see the products</g-link>
         </div>
     </section>
 </template>
