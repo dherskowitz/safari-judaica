@@ -153,11 +153,11 @@ export default {
                         this.messageError = true;
                     } else {
                         this.messageSent = true;
+                        this.formData.name = "";
+                        this.formData.rating = "";
+                        this.formData.comment = "";
+                        this.formData.hideName = false;
                     }
-                    this.formData.name = "";
-                    this.formData.rating = "";
-                    this.formData.comment = "";
-                    this.formData.hideName = false;
                     this.sending = !this.sending;
                     return data;
                 } catch (error) {
