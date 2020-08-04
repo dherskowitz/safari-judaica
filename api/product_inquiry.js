@@ -30,7 +30,6 @@ module.exports = async (req, res) => {
                 },
             }
         );
-        console.log(response);
         let data = await response.json();
         res.json({
             body: data,
