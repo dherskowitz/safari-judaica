@@ -20,6 +20,17 @@ module.exports = {
                         name: "Products", // required
                         typeName: "Product", // required
                         select: {}, // optional
+                        links: [
+                            {
+                                fieldName: "Product Reviews",
+                                typeName: "Review",
+                            },
+                        ],
+                    },
+                    {
+                        name: "Product Reviews", // required
+                        typeName: "Review", // required
+                        select: {}, // optional
                     },
                     {
                         name: "Categories", // required
