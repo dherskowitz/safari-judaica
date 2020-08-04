@@ -107,7 +107,14 @@
                             data-action="share/whatsapp/share"
                             target="_blank"
                             rel="noopener noreferrer nofollow"
-                            class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                            class="hidden md:inline mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                        >WhatsApp</a>
+                        <a
+                            :href="'whatsapp://send'+whatsappShare"
+                            data-action="share/whatsapp/share"
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                            class="inline md:hidden mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
                         >WhatsApp</a>
                     </span>
                 </div>
