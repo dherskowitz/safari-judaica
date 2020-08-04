@@ -42,6 +42,21 @@
                 class="bg-white rounded-lg md:rounded-none shadow-lg md:shadow-none w-full md:w-1/2 md:mr-10 text-center md:text-left mt-10 md:mt-0 pt-4 pb-4 leading-loose"
             >
                 <h1 class="text-3xl mb-2 border-b-4 border-capeHoney-alt">{{ $page.product.name }}</h1>
+                <div
+                    class="flex flex-col md:flex-row mt-4 justify-center md:justify-start items-center"
+                    v-if="productReviews.length > 0"
+                >
+                    <span>
+                        <Star
+                            v-for="i in 5"
+                            :width="1.5"
+                            starClass="productStar"
+                            class="inline"
+                            :key="i+'this.$page.product.id'"
+                        />
+                    </span>
+                    <p class="text-sm md:ml-4">Based on {{ productReviews.length }} reviews.</p>
+                </div>
                 <p
                     class="py-2 italic text-xl text-grey-600 font-semibold"
                 >${{ $page.product.priceDollars.toFixed(2) }}</p>
@@ -66,26 +81,35 @@
                 <p>
                     <span class="text-lg font-bold text-gray-700">- Materials</span>&nbsp;&nbsp; Leather and Fur
                 </p>
-                <div class="mt-5 flex flex-wrap justify-center md:block">
-                    <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
-                        class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
-                    >Facebook</a>
-                    <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
-                        class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
-                    >Instagram</a>
-                    <a
-                        :href="'https://wa.me/'+whatsappShare"
-                        data-action="share/whatsapp/share"
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
-                        class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
-                    >WhatsApp</a>
+                <div class="mt-5 flex flex-wrap justify-center lg:justify-between">
+                    <span class="mt-2 lg:mt-0">
+                        <p class="block mb-2">Like Us On:</p>
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                            class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                        >Facebook</a>
+                    </span>
+                    <span class="mt-2 lg:mt-0">
+                        <p class="block mb-2">Follow Us On:</p>
+                        <a
+                            href="https://www.instagram.com/safari.rosy/"
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                            class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                        >Instagram</a>
+                    </span>
+                    <span class="mt-2 lg:mt-0">
+                        <p class="block mb-2">Share This On:</p>
+                        <a
+                            :href="'https://wa.me/'+whatsappShare"
+                            data-action="share/whatsapp/share"
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                            class="mr-2 mb-2 border-gray-400 hover:bg-capeHoney-lighter cursor-pointer border-2 py-3 px-6"
+                        >WhatsApp</a>
+                    </span>
                 </div>
 
                 <button
@@ -97,6 +121,44 @@
         <div class="mt-10 md:mt-20">
             <h2 class="text-3xl mb-2 border-b-4 border-capeHoney-alt">Product Description</h2>
             <p class="bg-white rounded-lg shadow-lg mt-10 p-10">{{ $page.product.description }}</p>
+        </div>
+        <div class="mt-10 md:mt-20" v-if="productReviews.length > 0">
+            <h2 class="text-3xl mb-2 border-b-4 border-capeHoney-alt">Product Reviews</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                <span
+                    class="mb-2 w-full sm:max-w-xs lg:max-w-2xl"
+                    v-for="rev in productReviews"
+                    :key="rev.id"
+                >
+                    <blockquote
+                        class="relative p-4 text-xl italic border-l-4 bg-white shadow-lg rounded-lg text-neutral-600 border-neutral-500 quote"
+                    >
+                        <p class="mb-4">"{{ rev.comment }}"</p>
+                        <Star
+                            v-for="i in rev.rating"
+                            :width="1.5"
+                            fill="gold"
+                            stroke="gold"
+                            starClass="productStar"
+                            :key="rev.id"
+                            class="inline"
+                        />
+                        <cite class="flex items-center">
+                            <div class="flex flex-col items-start">
+                                <span
+                                    class="mb-1 text-sm italic font-bold"
+                                >{{ rev.remainAnonymous ? "Anonymous" : rev.name }}</span>
+                            </div>
+                        </cite>
+                    </blockquote>
+                </span>
+            </div>
+        </div>
+        <div class="mt-10 md:mt-20">
+            <h2 class="text-3xl mb-2 border-b-4 border-capeHoney-alt">Submit A Review</h2>
+            <div class="bg-white rounded-lg shadow-lg mt-10 p-10">
+                <ProductReviewForm />
+            </div>
         </div>
         <div class="mt-10 md:mt-20" v-if="relatedProducts.length > 0">
             <h2 class="text-3xl mb-8 border-b-4 border-capeHoney-alt">Similar Products</h2>
@@ -124,27 +186,36 @@ query ($id: ID!, $Category__0: String!) {
         newProduct
         summary
         description
+        averageRating
         primaryImage {
-        id
-        thumbnails {
-            large {
-            url
+            id
+            thumbnails {
+                large {
+                    url
+                }
+                full {
+                    url
+                }
             }
-            full {
-            url
-            }
-        }
         }
         additionalImages {
-        id
-        thumbnails {
-            large {
-            url
-            }
-            full {
-            url
+            id
+            thumbnails {
+                large {
+                    url
+                }
+                full {
+                    url
+                }
             }
         }
+        reviews: productReviews(sortBy: "created", order: DESC) {
+            id
+            name
+            status
+            rating
+            comment
+            remainAnonymous
         }
     }
     relatedProducts: allProduct(filter: {category: {contains: [$Category__0]}}) {
@@ -172,8 +243,16 @@ query ($id: ID!, $Category__0: String!) {
 <script>
 import ProductInquiryForm from "~/components/ProductInquiryForm";
 import ProductCard from "~/components/ProductCard";
+import ProductReviewForm from "~/components/ProductReviewForm";
+import Star from "~/components/Star";
 
 export default {
+    components: {
+        ProductInquiryForm,
+        ProductCard,
+        ProductReviewForm,
+        Star,
+    },
     data() {
         return {
             page: "",
@@ -187,6 +266,7 @@ export default {
             categoryLink: "",
             whatsappShare: "",
             relatedProducts: [],
+            productReviews: [],
         };
     },
     metaInfo() {
@@ -211,16 +291,14 @@ export default {
             ],
         };
     },
-    components: {
-        ProductInquiryForm,
-        ProductCard,
-    },
     beforeUpdate() {
         this.relatedProducts = this.$page.relatedProducts.edges.filter(
-            (item) => {
-                return item.node.id !== this.$page.product.id;
-            }
+            (item) => item.node.id !== this.$page.product.id
         );
+        this.productReviews = this.$page.product.reviews.filter(
+            (item) => item.status === "Approved"
+        );
+        this.setRating();
     },
     updated() {
         if (this.page !== this.$route.params.Slug) {
@@ -260,6 +338,15 @@ export default {
                 imgContainer.classList.remove("fade");
             }, 500);
             console.log("change");
+        },
+        setRating() {
+            const stars = [...document.querySelectorAll(".productStar")];
+            stars.map((star, i) => {
+                if (i < Math.round(this.$page.product.averageRating)) {
+                    star.style.fill = "gold";
+                    star.style.stroke = "gold";
+                }
+            });
         },
     },
 };
