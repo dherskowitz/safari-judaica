@@ -38,9 +38,9 @@
             <div>
                 <p class="text-xl text-center">
                     Call
-                    <span class="hidden md:inline-block">+972-55-555-5555</span>
+                    <span class="hidden md:inline-block">+1 947-886-0157</span>
                     <span class="md:hidden">
-                        <a href="tel:+972555555555">+972-55-555-5555</a>
+                        <a href="tel:+19478860157">+1 947-886-0157</a>
                     </span>
                 </p>
             </div>
