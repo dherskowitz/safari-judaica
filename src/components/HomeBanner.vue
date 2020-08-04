@@ -1,6 +1,6 @@
 <template>
     <section
-        class="home-banner relative bg-cover bg-no-repeat bg-center mt-10 lg:mt-20 px-16 md:rounded-lg opacity-75 flex items-center shadow-lg"
+        class="home-banner relative bg-cover bg-no-repeat bg-center mt-10 lg:mt-20 px-4 lg:px-16 md:rounded-lg opacity-75 flex items-center shadow-lg"
         style="background-image: url(/images/safari-judaica-banner.jpg)"
     >
         <div>
@@ -9,7 +9,7 @@
                 class="font-semibold text-3xl max-w-lg my-8"
             >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <g-link
-                class="bg-outerSpace py-5 px-16 text-xl text-white rounded-lg shadow-lg hover:bg-gray-800 uppercase"
+                class="bg-outerSpace py-5 px-4 lg:px-16 text-xl text-white rounded-lg shadow-lg hover:bg-gray-800 uppercase"
                 to="/shop/"
             >see the products</g-link>
         </div>
