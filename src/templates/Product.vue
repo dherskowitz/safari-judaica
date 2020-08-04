@@ -49,7 +49,7 @@
                     <span>
                         <Star
                             v-for="i in 5"
-                            :width="1.5"
+                            :width="24"
                             starClass="productStar"
                             class="inline"
                             :key="i+'this.$page.product.id'"
@@ -136,7 +136,7 @@
                         <p class="mb-4">"{{ rev.comment }}"</p>
                         <Star
                             v-for="i in rev.rating"
-                            :width="1.5"
+                            :width="24"
                             fill="gold"
                             stroke="gold"
                             starClass="productStar"

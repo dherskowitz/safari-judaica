@@ -2,7 +2,7 @@
     <svg
         :class="starClass"
         fill="none"
-        :width="width+'rem'"
+        :width="width"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="0.5"
