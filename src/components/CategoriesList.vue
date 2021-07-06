@@ -1,10 +1,10 @@
 <template>
     <section class="mt-10 lg:mt-20">
-        <h1 class="text-3xl font-semibold border-gray-600 border-b-4 mb-8">Safari Judaica Products</h1>
+        <!-- <h1 class="mb-8 text-3xl font-semibold border-b-4 border-gray-600">Safari Judaica Products</h1> -->
         <div class="flex flex-wrap justify-between">
             <g-link
-                class="category-link w-full md:w-1/5 px-30 py-10 m-2 text-white text-center rounded-lg shadow-lg lg:hover:scale-125 transform transition-scale duration-300 text-2xl flex items-center justify-center"
-                v-for="edge, index in $static.categories.edges"
+                class="flex items-center justify-center w-full py-10 m-2 text-2xl text-center text-white duration-300 transform rounded-lg shadow-lg category-link md:w-1/5 px-30 lg:hover:scale-125 transition-scale"
+                v-for="edge, index in groupedList"
                 :key="edge.node.id"
                 :style="catColors[index]"
                 :to="edge.node.path"
@@ -24,6 +24,15 @@ query {
       }
     }
   }
+  collections: allCollection(sortBy: "Name", order: ASC) {
+    edges {
+      node {
+        id,
+        name,
+        path
+      }
+    }
+  }
 }
 </static-query>
 
@@ -32,6 +41,7 @@ export default {
     name: "CategoriesList",
     data() {
         return {
+            groups: [],
             catColors: [
                 "background-color:#9A12B3;",
                 "background-color:#67809F;",
@@ -41,9 +51,18 @@ export default {
                 "background-color:#019875;",
                 "background-color:#F4B350;",
                 "background-color:#2E3131;",
+                "background-color:#fad859",
+                "background-color:#674172;",
+                "background-color:#2abb9b;",
+                "background-color:#d2527f;",
             ],
         };
     },
+    computed: {
+      groupedList: function() {
+        return [...this.$static.categories.edges, ...this.$static.collections.edges];
+      }
+    }
 };
 </script>
 
