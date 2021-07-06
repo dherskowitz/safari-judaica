@@ -31,7 +31,7 @@
             <p>Thank you.</p>
             <button
                 @click="hideForm"
-                class="bg-outerSpace px-8 py-2 mt-8 text-white rounded-lg shadow-lg"
+                class="bg-outerSpace-default px-8 py-2 mt-8 text-white rounded-lg shadow-lg"
             >Close</button>
         </div>
         <div v-else class="bg-white md:max-w-lg rounded-md shadow-lg p-5 md:p-10 m-4" @click.stop>
@@ -150,7 +150,7 @@
                         <p>There was a problem sending this inquiry. Please try again later.</p>
                     </div>
                     <button
-                        class="bg-outerSpace text-white text-lg mt-8 h-16 rounded-lg shadow-lg w-full"
+                        class="bg-outerSpace-default text-white text-lg mt-8 h-16 rounded-lg shadow-lg w-full"
                         @click.prevent="sendInquiry"
                     >
                         <span v-if="!sending">Submit</span>

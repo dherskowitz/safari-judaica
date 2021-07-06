@@ -8,11 +8,11 @@
                 <p class="text-xl md:text-3xl">Better get out of here quickly...</p>
                 <div class="mt-10">
                     <g-link
-                        class="bg-outerSpace mr-4 px-10 py-4 rounded-lg shadow-lg text-white text-xl"
+                        class="bg-outerSpace-default mr-4 px-10 py-4 rounded-lg shadow-lg text-white text-xl"
                         to="/"
                     >Home</g-link>
                     <g-link
-                        class="bg-outerSpace px-10 py-4 rounded-lg shadow-lg text-white text-xl"
+                        class="bg-outerSpace-default px-10 py-4 rounded-lg shadow-lg text-white text-xl"
                         to="/shop"
                     >Shop</g-link>
                 </div>

@@ -117,7 +117,7 @@
                         >Please enter a message of at least 10 characters.</div>
                     </div>
                     <button
-                        class="bg-outerSpace text-white text-lg mt-8 h-16 rounded-lg shadow-lg w-full"
+                        class="bg-outerSpace-default text-white text-lg mt-8 h-16 rounded-lg shadow-lg w-full"
                         @click.prevent="sendInquiry"
                     >
                         <span v-if="!sending">Submit</span>

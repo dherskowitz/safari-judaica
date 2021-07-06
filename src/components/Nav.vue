@@ -10,25 +10,25 @@
             <div class="bar3"></div>
         </div>
         <nav
-            class="nav flex justify-between items-center bg-capeHoney flex-col md:flex-row w-full md:w-auto z-20"
+            class="z-20 flex flex-col items-center justify-between w-full nav bg-capeHoney-default md:flex-row md:w-auto"
             :class="{'hidden md:block': !menuOpen, 'absolute md:relative left-0 mt-64 md:mt-0 shadow-lg md:shadow-none': menuOpen}"
         >
             <g-link
-                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
+                class="w-full px-8 py-4 text-lg text-center transition-colors duration-300 border-b-4 border-transparent hover:border-capeHoney-darker md:w-auto"
                 to="/"
                 exact
             >Home</g-link>
             <g-link
-                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
+                class="w-full px-8 py-4 text-lg text-center transition-colors duration-300 border-b-4 border-transparent hover:border-capeHoney-darker md:w-auto"
                 to="/shop/"
             >Shop</g-link>
             <g-link
-                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
+                class="w-full px-8 py-4 text-lg text-center transition-colors duration-300 border-b-4 border-transparent hover:border-capeHoney-darker md:w-auto"
                 to="/about/"
                 exact
             >About</g-link>
             <g-link
-                class="py-4 px-8 border-b-4 border-transparent hover:border-capeHoney-darker transition-colors duration-300 w-full md:w-auto text-center text-lg"
+                class="w-full px-8 py-4 text-lg text-center transition-colors duration-300 border-b-4 border-transparent hover:border-capeHoney-darker md:w-auto"
                 to="/contact/"
                 exact
             >Contact</g-link>

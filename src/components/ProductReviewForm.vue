@@ -1,33 +1,33 @@
 <template>
-    <div class="md:max-w-lg mx-auto">
+    <div class="mx-auto md:max-w-lg">
         <div class :class="{ 'block': messageSent, 'hidden': !messageSent }">
             <p class="text-2xl">Thank you for reviewing {{ $page.product.name }}</p>
         </div>
         <form :class="{ 'pointer-events-none': sending, 'hidden': messageSent }">
-            <div class="flex flex-col justify-between items-center mb-6">
-                <div class="flex justify-between items-center w-full">
+            <div class="flex flex-col items-center justify-between mb-6">
+                <div class="flex items-center justify-between w-full">
                     <label for="name" class="text-lg">Name</label>
                     <span
-                        class="text-red-500 font-semibold ml-6 text-sm text-right"
+                        class="ml-6 text-sm font-semibold text-right text-red-500"
                     >Field is required</span>
                 </div>
                 <input
-                    class="border-gray-500 border-2 w-full h-10 pl-2"
+                    class="w-full h-10 pl-2 border-2 border-gray-500"
                     type="text"
                     name="name"
                     placeholder="full name"
                     v-model="formData.name"
                 />
                 <span
-                    class="text-red-500 ml-6 text-right"
+                    class="ml-6 text-right text-red-500"
                     v-if="showErrors && !$v.formData.name.required"
                 >Please enter a name.</span>
             </div>
-            <div class="flex flex-col justify-between items-center mb-6">
-                <div class="flex justify-between items-center w-full">
+            <div class="flex flex-col items-center justify-between mb-6">
+                <div class="flex items-center justify-between w-full">
                     <label for="rating" class="text-lg">Rating</label>
                     <span
-                        class="text-red-500 font-semibold ml-6 text-sm text-right"
+                        class="ml-6 text-sm font-semibold text-right text-red-500"
                     >Field is required</span>
                 </div>
                 <Stars
@@ -40,35 +40,35 @@
                     v-if="showErrors && !$v.formData.rating.required"
                 >Please select a rating with a minimum of one star.</div>
             </div>
-            <div class="flex flex-col justify-between items-center mb-6">
-                <div class="flex justify-between items-center w-full">
+            <div class="flex flex-col items-center justify-between mb-6">
+                <div class="flex items-center justify-between w-full">
                     <label for="comment" class="text-lg">Comment</label>
                     <span
-                        class="text-red-500 font-semibold ml-6 text-sm text-right"
+                        class="ml-6 text-sm font-semibold text-right text-red-500"
                     >Field is required</span>
                 </div>
                 <textarea
                     rows="5"
-                    class="border-gray-500 border-2 w-full p-2"
+                    class="w-full p-2 border-2 border-gray-500"
                     type="text"
                     name="comment"
                     placeholder="comment"
                     v-model="formData.comment"
                 ></textarea>
                 <span
-                    class="text-red-500 ml-6 text-right"
+                    class="ml-6 text-right text-red-500"
                     v-if="showErrors && (!$v.formData.comment.required || !$v.formData.comment.minLength)"
                 >Please enter at least 10 characters.</span>
             </div>
-            <div class="flex justify-between items-center w-full">
-                <label for="hideName" class="text-lg pr-2">
+            <div class="flex items-center justify-between w-full">
+                <label for="hideName" class="pr-2 text-lg">
                     Remain Anonymous
                     <p
                         class="text-sm"
                     >If you do not want your name displayed on the site please check this box.</p>
                 </label>
                 <input
-                    class="border-gray-500 border-2 h-10 pl-2 w-8"
+                    class="w-8 h-10 pl-2 border-2 border-gray-500"
                     type="checkbox"
                     name="hideName"
                     id="hideName"
@@ -76,11 +76,11 @@
                 />
             </div>
             <button
-                class="bg-outerSpace text-white text-lg mt-8 h-16 rounded-lg shadow-lg w-full"
+                class="w-full h-16 mt-8 text-lg text-white rounded-lg shadow-lg bg-outerSpace-default"
                 @click.prevent="sendInquiry"
             >
                 <span v-if="!sending">Submit</span>
-                <g-image v-else src="~/assets/loader.svg" class="w-10 text-center mx-auto">sending</g-image>
+                <g-image v-else src="~/assets/loader.svg" class="w-10 mx-auto text-center">sending</g-image>
             </button>
         </form>
     </div>
