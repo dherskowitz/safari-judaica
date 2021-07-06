@@ -12,6 +12,11 @@
         "vuelidate": "^0.7.5"
     },
     "devDependencies": {
-        "gridsome-plugin-tailwindcss": "^3.0.1"
+        "autoprefixer": "^9",
+        "gridsome-plugin-tailwindcss": "^4.1.1",
+        "postcss": "^7",
+        "postcss-import": "^14.0.2",
+        "postcss-preset-env": "^6.7.0",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat"
     }
 }
