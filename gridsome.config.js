@@ -62,7 +62,7 @@ module.exports = {
   ],
   templates: {
     Product: "/shop/:CategoryName__0/:Slug",
-    Category: "/shop/:Name",
-    Collection: "/shop/:Name",
+    Category: "/shop/category/:Name",
+    Collection: "/shop/collection/:Name",
   },
 };
