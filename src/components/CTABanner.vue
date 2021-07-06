@@ -1,12 +1,12 @@
 <template>
     <section
-        class="cta-banner relative bg-cover bg-no-repeat bg-center mt-10 lg:mt-20 px-16 md:rounded-lg opacity-75 flex items-center shadow-lg"
+        class="relative flex items-center px-16 mt-10 bg-center bg-no-repeat bg-cover shadow-lg opacity-75 cta-banner lg:mt-20 md:rounded-lg"
         style="background-image: url(/images/safari-judaica-cta-banner.jpg)"
     >
         <div>
-            <p class="font-semibold text-3xl max-w-sm mb-16">Shop before he’s really mad!</p>
+            <p class="max-w-sm mb-16 text-3xl font-semibold">Shop before he’s really mad!</p>
             <g-link
-                class="bg-outerSpace py-5 px-16 text-3xl text-white rounded-lg shadow-lg hover:bg-gray-800"
+                class="px-16 py-5 text-3xl text-white rounded-lg shadow-lg bg-outerSpace-default hover:bg-gray-800"
                 to="/shop/"
             >SHOP</g-link>
         </div>
