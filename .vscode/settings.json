@@ -1,10 +1,15 @@
 {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "vetur.grammar.customBlocks": {
         "page-query": "graphql",
         "static-query": "graphql"
+    },
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#113510",
+        "titleBar.activeBackground": "#184A16",
+        "titleBar.activeForeground": "#F7FDF7"
     },
 }
