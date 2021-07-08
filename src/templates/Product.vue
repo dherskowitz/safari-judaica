@@ -16,7 +16,7 @@
                     <g-image
                         :src="mainImage.url"
                         :alt="$page.product.name"
-                        class="object-cover w-full max-h-full mx-auto"
+                        class="object-contain w-full max-h-full mx-auto"
                     ></g-image>
                 </div>
                 <div v-if="$page.product.additionalImages.length > 0" class="flex flex-wrap">
@@ -68,7 +68,7 @@
                         <span v-if="i > 0">/&nbsp;&nbsp;</span>
                         <a
                             class="text-left underline text-capeHoney-alt"
-                            :href="'/shop/'+catName.replace(' ', '-').toLowerCase()"
+                            :href="'/shop/category/'+catName.replaceAll(' ', '-').toLowerCase()"
                         >{{ catName }}</a>&nbsp;&nbsp;
                     </span>
                 </p>
