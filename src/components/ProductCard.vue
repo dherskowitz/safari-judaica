@@ -1,7 +1,7 @@
 <template>
     <g-link
         :to="productData.node.path"
-        class="relative flex-1 mb-4 overflow-hidden bg-gray-800 rounded-lg shadow-lg ">
+        class="relative flex-1 m-2 overflow-hidden bg-gray-800 rounded-lg shadow-lg ">
         <span class="flex items-center justify-center bg-white">
             <g-image
                 class="max-w-xs rounded-t-lg"
