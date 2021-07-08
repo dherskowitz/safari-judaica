@@ -1,13 +1,13 @@
 <template>
   <Shop>
-    <section class="min-h-screen md:flex md:items-start md:max-w-full">
+    <section class="md:flex md:items-start md:max-w-full">
       <div
         v-if="$page.products.edges && $page.products.edges.length == 0"
         class="w-full text-2xl text-center"
       >
         No products in this Collection yet!
       </div>
-      <div class="grid grid-cols-1 md:space-x-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2">
         <ProductCard
           v-for="edge in $page.products.edges"
           :key="edge.node.id"

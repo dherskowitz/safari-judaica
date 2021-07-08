@@ -1,6 +1,6 @@
 <template>
   <Shop>
-    <section class="min-h-screen md:flex md:items-start md:max-w-full">
+    <section class="md:flex md:items-start md:max-w-full">
       <div
         v-if="$page.products.edges && $page.products.edges.length == 0"
         class="w-full text-2xl text-center"
