@@ -1,9 +1,9 @@
 <template>
     <section class="mt-10 lg:mt-20">
         <!-- <h1 class="mb-8 text-3xl font-semibold border-b-4 border-gray-600">Safari Judaica Products</h1> -->
-        <div class="flex flex-wrap justify-between">
+        <div class="grid flex-wrap justify-between grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <g-link
-                class="flex items-center justify-center w-full py-10 m-2 text-2xl text-center text-white duration-300 transform rounded-lg shadow-lg category-link md:w-1/5 px-30 lg:hover:scale-125 transition-scale"
+                class="z-40 items-center py-10 m-2 text-2xl text-center text-white duration-300 transform rounded-lg shadow-lg category-link px-30 lg:hover:scale-105 transition-scale"
                 v-for="edge, index in groupedList"
                 :key="edge.node.id"
                 :style="catColors[index]"
