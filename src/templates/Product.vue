@@ -8,9 +8,9 @@
             >{{ $page.product.categoryName[0] }}</g-link>/
             <span class="text-capeHoney-alt">{{ $page.product.name }}</span>
         </div> -->
-        <div class="flex flex-col mt-10 md:bg-white md:flex-row">
+        <div class="flex flex-col-reverse lg:mt-10 lg:bg-white lg:flex-row">
             <div
-                class="flex flex-col justify-between w-full bg-white rounded-lg shadow-lg md:rounded-none md:shadow-none md:w-1/2 md:mr-10 border-capeHoney-alt md:border-r-4"
+                class="flex flex-col justify-between w-full bg-white rounded-lg shadow-lg lg:rounded-none lg:shadow-none lg:w-1/2 lg:mr-10 border-capeHoney-alt lg:border-r-4"
             >
                 <div class="mainProductImage">
                     <g-image
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div
-                class="w-full pt-4 pb-4 mt-10 leading-loose text-center bg-white rounded-lg shadow-lg md:rounded-none md:shadow-none md:w-1/2 md:mr-10 md:text-left md:mt-0"
+                class="w-full pt-4 pb-4 mt-10 mb-10 leading-loose text-center bg-white rounded-lg shadow-lg lg:mb-0 lg:rounded-none lg:shadow-none lg:w-1/2 lg:mr-10 lg:text-left lg:mt-0"
             >
                 <h1 class="mb-2 text-3xl border-b-4 border-capeHoney-alt">{{ $page.product.name }}</h1>
                 <div
@@ -120,7 +120,7 @@
                 </div>
 
                 <button
-                    class="p-2 px-4 mt-10 text-base text-white uppercase rounded-lg shadow-lg bg-outerSpace-default md:w-full md:text-lg"
+                    class="p-2 px-4 mt-10 text-base text-white uppercase rounded-lg shadow-lg bg-outerSpace-default md:w-full md:text-lg md:max-w-3/4 lg:max-w-full"
                     @click="toggleForm"
                 >Inquire about this product!</button>
             </div>
