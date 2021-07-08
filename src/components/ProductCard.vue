@@ -1,28 +1,32 @@
 <template>
-    <div
-        class="my-4 md:m-2 md:mb-10 md:my-0 bg-gray-800 shadow-lg relative flex justify-between flex-col rounded-lg max-w-2xl md:max-w-none lg:max-w-xs"
-    >
-        <g-image
-            class="rounded-t-lg"
-            v-if="productData.node.primaryImage[0]"
-            :src="productData.node.primaryImage[0].thumbnails.large.url"
-        />
+    <g-link
+        :to="productData.node.path"
+        class="relative flex-1 mb-4 overflow-hidden bg-gray-800 rounded-lg shadow-lg ">
+        <span class="flex items-center justify-center bg-white">
+            <g-image
+                class="max-w-xs rounded-t-lg"
+                :alt="productData.node.name "
+                v-if="productData.node.primaryImage[0]"
+                :src="productData.node.primaryImage[0].thumbnails.large.url"
+            />
+        </span>
         <div class="px-8 pt-8 text-gray-300">
             <div class="text-2xl text-center">{{ productData.node.name }}</div>
             <div
-                class="text-xl text-center w-16 mx-auto rounded-lg mt-2 bg-capeHoney-alt text-black"
+                v-if="productData.node.priceDollars"
+                class="w-16 mx-auto mt-2 text-xl text-center text-black rounded-lg bg-capeHoney-alt"
             >${{ productData.node.priceDollars }}</div>
-            <div class="text-center mt-4">{{ productData.node.summary }}</div>
+            <div class="mt-4 text-center">{{ productData.node.summary }}</div>
             <span
-                class="absolute top-0 right-0 m-2 rounded-md px-2 py-1 text-white"
+                class="absolute top-0 right-0 px-2 py-1 m-2 text-white rounded-md"
                 :class="{'bg-stock': productData.node.stockStatus == 'In Stock', 'bg-stock-low': productData.node.stockStatus == 'Limited Stock', 'bg-stock-out': productData.node.stockStatus == 'Out Of Stock'}"
             >{{ productData.node.stockStatus }}</span>
         </div>
         <g-link
             :to="productData.node.path"
-            class="bg-capeHoney-alt rounded-lg m-5 p-2 text-center text-xl"
+            class="flex justify-center p-2 m-5 text-xl rounded-lg bg-capeHoney-alt"
         >See Details</g-link>
-    </div>
+    </g-link>
 </template>
 
 <script>
