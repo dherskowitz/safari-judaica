@@ -68,7 +68,7 @@
                         <span v-if="i > 0">/&nbsp;&nbsp;</span>
                         <a
                             class="text-left underline text-capeHoney-alt"
-                            :href="'/shop/category/'+catName.replaceAll(' ', '-').toLowerCase()"
+                            :href="'/shop/category/'+catName.replace(/ /g, '-').toLowerCase()"
                         >{{ catName }}</a>&nbsp;&nbsp;
                     </span>
                 </p>
