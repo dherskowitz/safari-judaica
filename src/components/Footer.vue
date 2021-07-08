@@ -1,5 +1,5 @@
 <template>
-            <footer class="mt-20 bg-outerSpace-default">
+            <footer class="mt-10 bg-outerSpace-default">
             <div class="p-10">
                 <g-image src="~/assets/img/Safari_Juciaca_Logo-1024x864.png" width="200" />
             </div>
