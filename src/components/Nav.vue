@@ -11,7 +11,7 @@
         </div>
         <nav
             class="z-20 flex flex-col items-center justify-between w-full nav bg-capeHoney-default md:flex-row md:w-auto"
-            :class="{'hidden md:block': !menuOpen, 'absolute md:relative left-0 mt-64 md:mt-0 shadow-lg md:shadow-none': menuOpen}"
+            :class="{'hidden md:block': !menuOpen, 'absolute md:relative left-0 mt-80 md:mt-0 shadow-lg md:shadow-none': menuOpen}"
         >
             <g-link
                 class="w-full px-8 py-4 text-lg text-center transition-colors duration-300 border-b-4 border-transparent hover:border-capeHoney-darker md:w-auto"
