@@ -169,7 +169,7 @@
         </div>
         <div class="mt-10 md:mt-20" v-if="relatedProducts.length > 0">
             <h2 class="mb-8 text-3xl border-b-4 border-capeHoney-alt">Similar Products</h2>
-            <div class="flex space-x-4">
+            <div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
                 <ProductCard v-for="edge in relatedProducts" :key="edge.node.id" :productData="edge" />
             </div>
         </div>
