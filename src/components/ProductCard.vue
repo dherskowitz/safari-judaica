@@ -1,9 +1,9 @@
 <template>
     <g-link
         :to="productData.node.path"
-        class="relative flex-1 m-2 overflow-hidden bg-gray-800 rounded-lg shadow-lg ">
+        class="relative flex-1 w-full mb-2 overflow-hidden bg-gray-800 rounded-lg shadow-lg sm:w-auto sm:mx-2">
         <span class="flex items-center justify-center bg-white">
-            <g-image
+            <g-imageZ
                 class="max-w-xs rounded-t-lg"
                 :alt="productData.node.name "
                 v-if="productData.node.primaryImage[0]"
